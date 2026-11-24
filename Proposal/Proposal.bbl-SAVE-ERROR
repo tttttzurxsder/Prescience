@@ -1,0 +1,105 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{10.1145/3233756.3233955}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=be57b280feda545d52016d6d016d97f0}{%
+           family={Rose},
+           familyi={R\bibinitperiod},
+           given={Emma\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=a75fb57510549f09f99695634e8ac5b1}{%
+           family={Björling},
+           familyi={B\bibinitperiod},
+           given={Elin\bibnamedelima A.},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=529b65140ed82545bd049a5e1b5a6352}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Ada},
+           giveni={A\bibinitperiod}}}%
+        {{hash=22611ea359839e687b11182292179f6b}{%
+           family={Alvarez},
+           familyi={A\bibinitperiod},
+           given={Nicole\bibnamedelima Young},
+           giveni={N\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Milwaukee, WI, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{b6962a95ab60d5f7f4b8eb6b9a3c90db}
+      \strng{fullhash}{0eaa104ed654e6fb72845ed3e158da35}
+      \strng{bibnamehash}{b6962a95ab60d5f7f4b8eb6b9a3c90db}
+      \strng{authorbibnamehash}{b6962a95ab60d5f7f4b8eb6b9a3c90db}
+      \strng{authornamehash}{b6962a95ab60d5f7f4b8eb6b9a3c90db}
+      \strng{authorfullhash}{0eaa104ed654e6fb72845ed3e158da35}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Teens are a unique population with needs and communication styles that differ from adults and children. Methods in human-centered design were initially conceptualized with adults in mind, but these methods should be reexamined to include the needs of teens. In this experience report, we reflect on a project introducing teens to human-centered design and methods. As part of the project, our team created a website and series of videos. We conducted a usability evaluation on the videos and an accompanying website with teens to understand what worked well and how to make improvements. In this report, we discuss how we modified traditional usability methods and tailored them for a teen audience. We share takeaways including keep methods and tools lightweight and facilitation styles engaging and casual. We assert that modifying methods is a key consideration for conducting usability testing with any unique group of users.}
+      \field{booktitle}{Proceedings of the 36th ACM International Conference on the Design of Communication}
+      \field{isbn}{9781450359351}
+      \field{series}{SIGDOC '18}
+      \field{title}{Usability testing with teens: Adapting human-centered design and UX methods}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1145/3233756.3233955
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3233756.3233955
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3233756.3233955
+      \endverb
+      \keyw{usability testing,teens,Human-centered design}
+    \endentry
+    \entry{tremp2022agile}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b010792b54e27f10a8dca10242e5d08c}{%
+           family={Tremp},
+           familyi={T\bibinitperiod},
+           given={Hansruedi},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{b010792b54e27f10a8dca10242e5d08c}
+      \strng{fullhash}{b010792b54e27f10a8dca10242e5d08c}
+      \strng{bibnamehash}{b010792b54e27f10a8dca10242e5d08c}
+      \strng{authorbibnamehash}{b010792b54e27f10a8dca10242e5d08c}
+      \strng{authornamehash}{b010792b54e27f10a8dca10242e5d08c}
+      \strng{authorfullhash}{b010792b54e27f10a8dca10242e5d08c}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Agile objektorientierte Anforderungsanalyse}
+      \field{year}{2022}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

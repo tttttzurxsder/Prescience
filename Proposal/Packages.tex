@@ -1,0 +1,73 @@
+% Hier könnnen während der Bearbeitung der Arbeit weitere Packages eingebunden werden.
+
+\usepackage{nomencl}
+\usepackage{makeidx}
+
+% sorgt dafür das generierter Text auf deutsch ist (Bsp. Inhaltsverzeichnis)
+\usepackage[ngerman]{babel}
+
+% für Tabellen
+\usepackage{array}
+
+% zusätzliche Mathesymbole
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+
+% Calibri esque Font
+\usepackage[sfdefault]{carlito}
+
+% FÜr die Aufzählungen
+\usepackage{enumitem}
+
+% zum generieren von Literaturverzeichnis
+\usepackage{csquotes}
+\usepackage{biblatex}
+% Robuste Zitier-Wrapper für bewegte Argumente (Captions, etc.)
+\DeclareRobustCommand{\citerobust}[1]{\cite{#1}}
+
+% Kapitel Formatierung anpassen
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter}               
+  {1em}                       
+  {}    
+
+% Standard Kopfzeile
+\usepackage{fancyhdr}
+\fancypagestyle{fancy}{
+  \fancyhf{}
+  \rhead{\rightmark}
+  \cfoot{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+
+% für keine Header
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \cfoot{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
+\usepackage{xspace}
+
+% zum Laden von Grafiken
+\usepackage{graphicx}
+
+%Zum färben von Text
+\usepackage{xcolor}
+
+% zum setzen von Ankern
+\usepackage{hyperref}
+
+% Standardisiertes Abbildungsformat
+\usepackage[font=small,labelfont=bf,labelsep=colon]{caption}
+\newcommand{\standardfigure}[4][]{%
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{#2}
+    \caption[#3]{#4}
+    \label{fig:#1}
+  \end{figure}
+}

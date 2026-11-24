@@ -1,0 +1,162 @@
+% pdflatex myfile.tex
+% makeindex myfile.idx
+% pdflatex myfile.tex
+% biber myfile
+% pdflatex myfile.tex
+% pdflatex myfile.tex
+
+\documentclass[
+    12pt,
+    ngerman,
+    a4paper,
+    oneside
+]{book}
+
+% UTF-8 + T1 Fontencoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+
+% Import von Meta-Daten (Autor, Titel, Prüfer, etc.)
+\input{Meta}
+
+% Import von ausgelagerten Packages
+\input{Packages}
+
+% Laden der .bib
+\addbibresource{Bibliography.bib}
+
+\makenomenclature{}
+
+\renewcommand{\nomname}{Abkürzungen und Glossar}
+\setlength{\nomlabelwidth}{3cm}         % Platz für das Kürzel
+\setlength{\nomitemsep}{0.5\baselineskip} % Abstand zwischen den Einträgen
+\renewcommand{\nomlabel}[1]{\textbf{#1}\dotfill}
+
+\begin{document}
+
+\include{Deckblatt}
+
+\section*{Problemstellung}
+Im Rahmen von Jugendfreizeiten oder Jugendtreffs werden häufig pädagogische Materialien wie Spielanleitungen, Theaterskripte oder Liedblätter erstellt und eingesetzt.
+Diese Materialien werden meist wiederholt neu erstellt, da sie nicht gespeichert, oder gesammelt zugänglich gemacht werden.
+Als Lösung für dieses Problem sollen die Materialien in einer Webanwendung gespeichert und verwaltet werden.
+Diese Arbeit soll untersuchen, ob es ehrenamtlichen Mitarbeitenden zwischen 14 und 21 Jahren möglich ist, eine Webanwendung, welche ihnen bei der Organisation solcher Materialien hilft, selbstständig einzurichten und zu verwalten. 
+
+
+\section*{Forschungsfrage}
+
+\begin{quote}
+Wie unterscheiden sich manuelle und containerisierte Installation und Wartung einer Webanwendung durch ehrenamtliche Jugendliche hinsichtlich Aufgabenerfolg, Bearbeitungszeit und benötigter Hilfestellung?
+\end{quote}
+
+\noindent Im Rahmen der Arbeit sollen zwei Bereitstellungsansätze für denselben Webapp-Prototypen verglichen werden: eine manuelle Installation von Webserver und Datenbank und eine containerisierte Bereitstellung mit Docker.
+In beiden Ansätzen erhalten die Jugendlichen eine detaillierte Schritt-für-Schritt Anleitung und führen dieselben Aufgaben zur Inbetriebnahme und Aktualisierung auf einem Standardieserten Linux-System durch.
+Die Qualitätsmerkmale nach denen die Evaluation quantifiziert werden soll:
+\begin{enumerate}[label={-}, itemsep=0.1em]
+    \item \textbf{Aufgabenerfolg}: Anzahl der Aufgaben, die nach Abschluss des Versuchs und ohne Eingreifen richtig abgeschlossen werden.
+    \item \textbf{Zeitaufwand}: Zeit vom Start der Bearbeitung einer Aufgabe bis zu ihrem Abschluss.
+    \item \textbf{Benötigte Hilfestellung}: Frequenz und Dauer mit der Hilfestellung zum Lösen der Aufgaben in Anspruch genommen werden.
+\end{enumerate}
+
+\section*{Forschungsstand}
+Vorhandene Forschung im Bereich digitaler Kompetenz Jugendlicher befasst sich überwiegend mit Nutzung von Suchmaschinen zur Informationsgewinnung oder sozialen Medien im Rahmen zwischenmenschlicher Interaktion.\cite{schaumburg2019nutzung}\cite{hartmann2020digitale}
+Dienste wie die Jugendapp von jugendarbeit.digital oder GroupSenz sind Plattformen, welche Funktionen zur Verwaltung von Jugendangeboten bereitstellen, allerdings nicht auf die selbstständige Inbetriebnahme und Wartung durch Jugendliche ausgelegt sind.\cite{jugendarbeit.digital}\cite{groupsenz}
+In den Recherchierten Arbeiten fanden sich keine Untersuchungen, die sich mit der Inbetriebnahme und Wartung einer Webanwendung durch Jugendliche befassten.
+Auch die Verwendung von Containerisierung zur Einrichtung von digitalen Diensten durch Jugendliche ist kaum erforscht.
+Es ist daher unklar, ob die Verwendung von Containerisierung im Vergleich zu einer manuellen Installation von Webserver und Datenbank die Inbetriebnahme und Wartung durch Jugendliche erleichtert.
+Skriptbasierte Konfiguartion, virtuelle Maschinen, sowie Product- und Function-as-a-Service werden als alternative Ansätze eingeordnet, sind jedoch nicht Gegenstand dieser Arbeit, da sie entweder zu komplex oder zu simpel sind, um die Forschungsfrage zu beantworten.
+
+\section*{Methodik}
+Zu Beginn der Arbeit wird der Webanwendungsprototyp in einem agilen Entwicklungsprozess entwickelt.\cite{tremp2022agile}
+In der Anforderungsanalyse werden zuerst die Stakeholdergruppen innerhalb der ehrenamtlichen Jugendarbeit identifiziert.
+Zu unterscheiden sind die diversen Altersgruppen und verschiedenen Rollen innerhalb der Jugendarbeit.
+In Interviews mit diesen Stakeholdergruppen werden danach Anforderungen an die Webanwendung definiert.
+Diese werden als User Stories formuliert, die als Grundlage für die Entwicklung des Prototyps dienen.
+Bei Durchführung der Usability-Tests sollen Testverfahren an die Arbeit mit Jugendlichen angepasst werden.\cite{Rose2018}
+Damit die Entwicklungszeit im Hinblick auf Evaluation der Bereitstellungsansätze nicht zu lang wird, soll der Umfang der Webanwendung auf die Kernfunktionen zur Verwaltung von pädagogischen Materialien beschränkt werden.
+
+Nach abgeschlossener Entwicklung des Prototyps wird die Webanwendung in die Bereitstellungsansätze integriert.
+Webserver und Datenbank werden in einem Docker-Container als Image bereitgestellt, während die manuelle Installation über git und Paketmanager erfolgt.
+Für beide Bereitstellungsansätze werden Schritt-für-Schritt Anleitungen erstellt, die die Jugendlichen durch die Inbetriebnahme und Wartung der Webanwendung führen.
+Mit fertigen Anleitungen werden Testpläne für die beiden Bereitstellungsansätze erstellt.
+Eine Gruppe aus zwölf Ehrenamtlichen wird in vier Untergruppen unterteilt, welche die verschiedenen Bereitstellungsansätze in unterschiedlichen Reihenfolgen testen.
+Eine Gruppe testet zuerst die manuelle Installation und danach die containerisierte Bereitstellung, eine Zweite tut dies umgekehrt.
+Die beiden verbleibenden Gruppen testen jeweils nur eine der beiden Bereitstellungsansätze.
+Die Aufgaben innerhalb der Testgruppen sind identisch und decken die gesammte Inbetriebnahme, sowie ausgewählte Wartungsaufgaben ab.
+Die Ergebnisse werden anhand der Merkmale Aufgabenerfolg, Zeitaufwand und Benötigte Hilfestellung ausgewertet.
+Diese Merkmale sollen quantifizierbar sein, um die beiden Bereitstellungsansätze miteinander vergleichen zu können.
+
+Die Testleitung greift nur im Notfall ein, um bei Aufgaben zu helfen.
+Als Aufgabenerfolg zählt eine Aufgabe, die ohne Eingreifen der Testleitung korrekt abgeschlossen wurde.
+Der Zeitaufwand wird von Beginn der Bearbeitung einer Aufgabe bis zu ihrem Abschluss gemessen.
+Die benötigte Hilfestellung wird von der Testleitung dokumentiert, indem sie festhält, wie oft und lange in der Anleitung nachgelesen werden musste, um die Aufgabe zu lösen.
+
+\section*{Gliederung}
+\begin{enumerate}[
+    label=\arabic*.,
+    leftmargin=*,
+    itemsep=0.4em,
+    topsep=0.2em
+]
+    \item \textbf{Einleitung} (10\%) \\
+    Problemstellung, Forschungsfrage und Zielsetzung
+
+    \item \textbf{Grundlagen und Forschungsstand} (15\%)\\
+    Digitale Kompetenzen Jugendlicher und Bereitstellungsansätze für Webanwendungen
+
+    \item \textbf{Methodik} (15\%)\\
+    Beschreibung der Vorgehensweise, Probanden, Aufgaben, Testaufbau, Testdurchführung, Erhebungsmethoden und Auswerungsverfahren.
+    
+    \item \textbf{Anforderungsanalyse und Prototypentwicklung} (10\%)\\
+    Erheben der Anforderungen an die Webanwendung und Entwicklung eines Prototyps.
+    
+    \item \textbf{Entwicklung der Bereitstellungsansätze} (10\%)\\
+    Umsetzung der containerisierten und manuellen Bereitstellung sowie Erstellung der Anleitungen für die Testgruppen.
+    
+    \item \textbf{Entwurf und Durchführung der Tests} (20\%)\\
+    Erstellen der Testpläne und Dokumentation der Ergebnisse und Beobachtungen während der Tests.
+    
+    \item \textbf{Diskussion} (15\%)\\
+    Einordnen der Testergebnisse, Vergleich der Bereitstellungsansätze und Beantwortung der Forschungsfrage.
+    
+    \item \textbf{Fazit und Ausblick} (5\%)\\
+    Zusammenfassung der Ergebnisse und Ausblick auf mögliche Weiterentwicklungen.
+
+
+\end{enumerate}
+
+\section*{Zeitplan}
+Die Arbeitszeit umfasst 13 Wochen und soll sich grob in vier Phasen gliedern:
+\begin{enumerate}[label=\Roman*.]
+    \item Anforderungsanalyse und Prototypentwicklung (ca. 4 Wochen)
+    \begin{enumerate}[label={-}, itemsep=0.1\baselineskip]
+        \item Anforderungen der Webanwendung definieren (ca. 1 Woche)
+        \item Prototyp entwickeln (ca. 3 Wochen)
+    \end{enumerate}
+    \item Erstellung der Testpläne und Durchführung der Tests (ca. 5 Wochen)
+    \begin{enumerate}[label={-}, itemsep=0.1\baselineskip]
+        \item Bereitstellungsansätze implementieren (ca. 1 Woche)
+        \item User Guides und Testpläne für die Bereitstellungsansätze erstellen (ca. 2 Wochen)
+        \item Usability-Tests durchführen (ca. 2 Wochen)
+    \end{enumerate}
+    \item Auswertung der Ergebnisse und Erstellung der Arbeit (ca. 4 Wochen)
+    \begin{enumerate}[label={-}, itemsep=0.1\baselineskip]
+        \item Ergebnisse auswerten (ca. 2 Wochen)
+        \item Arbeit finalisieren (ca. 2 Wochen)
+    \end{enumerate}
+\end{enumerate}
+
+\noindent Mit dem Schreiben soll bereits während der Prototypentwicklung begonnen und während der Tests laufend weitergeführt werden, um die Arbeit innerhalb des Zeitplans fertigzustellen.
+Der Umfang der Thesis soll ohne Anhang circa 10.000 bis 15.000 Wörter betragen.
+
+\section*{Literatur}
+Für die Arbeit wichtige Publikationen sind Werke zu den Themenbereichen agiler Prototypentwicklung\cite{tremp2022agile} und Usability Evaluation\cite{Venable01012016}.
+Zum Verfassen der Anleitungen ist Literatur zu didaktischen Methoden in der Arbeit mit Technik notwendig.\cite{schubert2011didaktik}
+Die Entwicklung der Webanwendung, sowie die Bereitstellung dieser, wird auf Grundlage von Dokumentation der verwendeten Frameworks und Bibliotheken erfolgen.\cite{dockerDocs}
+Zur Einordnung der Arbeit in den Forschungsstand werden Publikationen zu digitalen Kompetenzen Jugendlicher\cite{schaumburg2019nutzung}\cite{hartmann2020digitale} und zu bestehenden Plattformen für die Jugendarbeit\cite{jugendarbeit.digital}\cite{groupsenz} herangezogen.
+
+% Literaturverzeichnis
+\printbibliography{}
+
+\end{document}
