@@ -28,3 +28,5 @@
 *.snm
 *.vrb
 *.xdy
+*.bcf-SAVE-ERROR
+*.nlo
