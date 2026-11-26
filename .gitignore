@@ -30,3 +30,27 @@
 *.xdy
 *.bcf-SAVE-ERROR
 *.nlo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables and local settings
+.env
+.env.*
+!.env.example
+
+# Django
+prototype/db.sqlite3
+prototype/media/
+
+# Test and coverage files
+.pytest_cache/
+.coverage
+htmlcov/
