@@ -53,7 +53,12 @@ Wie unterscheiden sich manuelle und containerisierte Installation und Wartung ei
 \noindent Im Rahmen der Arbeit sollen zwei Bereitstellungsansätze für denselben Webapp-Prototypen verglichen werden: eine manuelle Installation von Webserver und Datenbank und eine containerisierte Bereitstellung mit Docker.
 In beiden Ansätzen erhalten die Jugendlichen eine detaillierte Schritt-für-Schritt Anleitung und führen dieselben Aufgaben zur Inbetriebnahme und Aktualisierung auf einem Standardieserten Linux-System durch.
 Die Qualitätsmerkmale nach denen die Evaluation quantifiziert werden soll:
-\begin{enumerate}[label={-}, itemsep=0.1em]
+\begin{enumerate}[
+    label={-},
+    leftmargin=*,
+    itemsep=0.4em,
+    topsep=0.4em
+]
     \item \textbf{Aufgabenerfolg}: Anzahl der Aufgaben, die nach Abschluss des Versuchs und ohne Eingreifen richtig abgeschlossen werden.
     \item \textbf{Zeitaufwand}: Zeit vom Start der Bearbeitung einer Aufgabe bis zu ihrem Abschluss.
     \item \textbf{Benötigte Hilfestellung}: Frequenz und Dauer mit der Hilfestellung zum Lösen der Aufgaben in Anspruch genommen werden.
@@ -75,6 +80,8 @@ In Interviews mit diesen Stakeholdergruppen werden danach Anforderungen an die W
 Diese werden als User Stories formuliert, die als Grundlage für die Entwicklung des Prototyps dienen.
 Bei Durchführung der Usability-Tests sollen Testverfahren an die Arbeit mit Jugendlichen angepasst werden.\cite{Rose2018}
 Damit die Entwicklungszeit im Hinblick auf Evaluation der Bereitstellungsansätze nicht zu lang wird, soll der Umfang der Webanwendung auf die Kernfunktionen zur Verwaltung von pädagogischen Materialien beschränkt werden.
+Anhand dieser Grundanforderungen wurde sich für Django entschieden.
+Das Framework stellt viele Funktionen für die Verwaltung von Datenbanken bereits bereit und ermöglicht damit eine schnellere Entwicklung des Prototypen.\cite{djangoDocs}
 
 Nach abgeschlossener Entwicklung des Prototyps wird die Webanwendung in die Bereitstellungsansätze integriert.
 Webserver und Datenbank werden in einem Docker-Container als Image bereitgestellt, während die manuelle Installation über git und Paketmanager erfolgt.
@@ -127,8 +134,13 @@ Die benötigte Hilfestellung wird von der Testleitung dokumentiert, indem sie fe
 \end{enumerate}
 
 \section*{Zeitplan}
-Die Arbeitszeit umfasst 13 Wochen und soll sich grob in vier Phasen gliedern:
-\begin{enumerate}[label=\Roman*.]
+Die Arbeitszeit umfasst 13 Wochen und soll sich grob in drei Phasen gliedern:
+\begin{enumerate}[
+    label=\Roman*.,
+    leftmargin=*,
+    itemsep=0.4em,
+    topsep=0.4em
+]
     \item Anforderungsanalyse und Prototypentwicklung (ca. 4 Wochen)
     \begin{enumerate}[label={-}, itemsep=0.1\baselineskip]
         \item Anforderungen der Webanwendung definieren (ca. 1 Woche)
@@ -151,10 +163,12 @@ Die Arbeitszeit umfasst 13 Wochen und soll sich grob in vier Phasen gliedern:
 Der Umfang der Thesis soll ohne Anhang circa 10.000 bis 15.000 Wörter betragen.
 
 \section*{Literatur}
-Für die Arbeit wichtige Publikationen sind Werke zu den Themenbereichen agiler Prototypentwicklung\cite{tremp2022agile} und Usability Evaluation\cite{Venable01012016}.
-Zum Verfassen der Anleitungen ist Literatur zu didaktischen Methoden in der Arbeit mit Technik notwendig.\cite{schubert2011didaktik}
-Die Entwicklung der Webanwendung, sowie die Bereitstellung dieser, wird auf Grundlage von Dokumentation der verwendeten Frameworks und Bibliotheken erfolgen.\cite{dockerDocs}
-Zur Einordnung der Arbeit in den Forschungsstand werden Publikationen zu digitalen Kompetenzen Jugendlicher\cite{schaumburg2019nutzung}\cite{hartmann2020digitale} und zu bestehenden Plattformen für die Jugendarbeit\cite{jugendarbeit.digital}\cite{groupsenz} herangezogen.
+Für die methodische Arbeit während der Entwicklung der Webapp wird Literatur zu agiler Prototypentwicklung herangezogen.\cite{tremp2022agile}
+Dort finden sich Hinweise zu Anforderungsanalyse, Usability-Tests und Evaluation von Softwareprototypen.
+Zum Verfassen der Anleitungen ist Literatur zu didaktischen Methoden in der Arbeit mit Technik notwendig.\cite{wallwork2014user}
+Durch diese wird sichergestellt, dass die Anweisungen für die Jugendlichen verständlich und anwendbar sind.
+Die Entwicklung der Webanwendung, sowie die Bereitstellung dieser, wird auf Grundlage von Dokumentation der verwendeten Frameworks und Bibliotheken erfolgen.\cite{dockerDocs}\cite{djangoDocs}
+Um die Arbeit in den Forschungsstand einzuordnen, werden Publikationen zu digitalen Kompetenzen Jugendlicher\cite{schaumburg2019nutzung}\cite{hartmann2020digitale} und zu bestehenden Plattformen für die Jugendarbeit\cite{jugendarbeit.digital}\cite{groupsenz} herangezogen.
 
 % Literaturverzeichnis
 \printbibliography{}
